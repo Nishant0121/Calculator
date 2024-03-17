@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/vendors/bootstrap/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <style>
+    .calculator {
+      width: fit-content;
+      padding: 10px;
+    }
+    .contenior {
+      height: 100vh;
+    }
+    .inputstring {
+      margin-top: 5px;
+      height: 20px;
+      display: block;
+      font-size: 20px;
+    }
+    .expressionstring {
+      margin-top: 5px;
+      height: 20px;
+      display: block;
+      font-size: 20px;
+    }
+    .valuestring {
+      margin-top: 5px;
+      height: 20px;
+      display: block;
+      font-size: 20px;
+    }
+  </style>
+  <body>
+    <div
+      class="contenior d-flex align-items-center justify-content-center p-2 w-100"
+    >
+      <div class="calculator_body border p-2 w-60">
+        <div class="screen text-primary bg-dark p-4 w-100">
+          <div id="num_div" class="inputstring">0</div>
+          <div id="expression" class="expressionstring"></div>
+          <div id="value_div" class="valuestring">batata</div>
+          <input type="hidden" id="savedexpression" value="" />
+        </div>
+        <div class="buttons w-100 d-flex flex-column justify-content-center">
+          <div class="w-100 d-flex justify-content-center">
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="NumLock"
+              >
+                N/L
+              </button>
+            </div>
+
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="Delete"
+              >
+                CE
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="Delete"
+              >
+                del
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="/"
+              >
+                /
+              </button>
+            </div>
+          </div>
+          <div class="w-100 d-flex justify-content-center">
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="7"
+              >
+                7
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="8"
+              >
+                8
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="9"
+              >
+                9
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="%"
+              >
+                %
+              </button>
+            </div>
+          </div>
+          <div class="w-100 d-flex justify-content-center">
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="4"
+              >
+                4
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="5"
+              >
+                5
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="6"
+              >
+                6
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="*"
+              >
+                *
+              </button>
+            </div>
+          </div>
+          <div class="w-100 d-flex justify-content-center">
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="1"
+              >
+                1
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="2"
+              >
+                2
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="3"
+              >
+                3
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="+"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <div class="w-100 d-flex justify-content-center">
+            <div class="w-50 p-2">
+              <button
+                type="button"
+                class="btn w-100 w-100 btn-primary"
+                data-event_key="0"
+              >
+                0
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="."
+              >
+                .
+              </button>
+            </div>
+            <div class="w-25 p-2">
+              <button
+                type="button"
+                class="btn w-100 btn-primary"
+                data-event_key="="
+              >
+                =
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/vendors/bootstrap/js/bootstrap.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
